@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BlackBean — Кав'ярня</title>
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand">
+        <img src="images/logo.png" alt="BlackBean logo" class="logo">
+        <div class="brand-text">
+          <div class="brand-title">BlackBean</div>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Головна навігація">
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <h1 class="hero-title">Кава. Атмосферність. Справжність.<br><br><span class="hero-sub">Твій куточок кави.</span></h1>
+      <div class="hero-actions">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- BREAKFASTS: Слайд ліворуч, текст праворуч -->
+    <section id="menu" class="section section-alt">
+      <div class="container split-row">
+        <div class="split-left">
+          <div class="slider" data-slider="food">
+            <div class="slides">
+              <img src="images/ben-kolde-FFqNATH27EM-unsplash.jpg" alt="Сніданок 1">
+              <img src="images/calum-lewis-2V0yqVNkVRM-unsplash.jpg" alt="Сніданок 2">
+              <img src="images/kavita-joshi-rai-lE5O9DktAQY-unsplash.jpg" alt="Сніданок 3">
+            </div>
+            <div class="dots"></div>
+          </div>
+        </div>
+
+        <div class="split-right">
+          <h2>Сніданки</h2>
+          <p class="muted">Приходьте на сніданки щодня з 8:30 до 16:00! Смакуйте смачні страви в комфортній обстановці.
+          Ми чекаємо на вас!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRINKS: Слайд ліворуч, текст праворуч -->
+    <section id="drinks" class="section">
+      <div class="container split-row">
+        <div class="split-right">
+          <h2>Напої</h2>
+          <p class="muted">Свіжі кавові напої, ароматний чай, смачний какао та сезонні напої.
+          Насолоджуйтеся кожним ковтком і відкрийте нові смаки разом з нами!</p>
+        </div>
+        <div class="split-left">
+          <div class="slider" data-slider="drinks">
+            <div class="slides">
+              <img src="images/syauqy-ayyash-8sYN4tHuzBg-unsplash.jpg" alt="Напій 1">
+              <img src="images/natanja-grun-X2s8GhnQmds-unsplash.jpg" alt="Напій 2">
+              <img src="images/jayden-sim-4m2kWe4tfMM-unsplash.jpg" alt="Напій 3">
+            </div>
+            <div class="dots"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATMOSPHERE: текст ліворуч, слайд праворуч -->
+    <section id="gallery" class="section section-alt">
+      <div class="container split-row reverse-on-mobile">
+        <div class="split-right">
+          <div class="slider" data-slider="atmosphere">
+            <div class="slides">
+              <img src="images/steffan-mitchell-gHrgeeCCkYA-unsplash.jpg" alt="Атмосфера 1">
+              <img src="images/rizky-subagja-1k7TnX5GAww-unsplash.jpg" alt="Атмосфера 2">
+            </div>
+            <div class="dots"></div>
+            
+          </div>
+        </div>
+        <div class="split-right">
+          <h2>Атмосфера</h2>
+          <p class="muted">Ми створили простір, де аромат обсмажених зерен поєднується з атмосферою спокою.
+          Тут можна попрацювати, зустріти друзів або просто насолодитися улюбленим напоєм.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="contacts section">
+      <div class="container">
+        <h3>Контакти</h3>
+        <div class="contact-grid">
+          <div>
+            <strong>Адреса</strong>
+            <p class="muted">вул. Кавова, 12, Місто</p>
+          </div>
+          <div>
+            <strong>Години роботи</strong>
+            <p class="muted">Пн–Пт: 08:30–20:00<br>Сб–Нд: 09:00–18:00</p>
+          </div>
+          <div>
+            <strong>Телефон</strong>
+            <p class="muted">+380 12 345 6789</p>
+          </div>
+          <div>
+            <strong>Соцмережі</strong>
+            <p class="muted"><a href="#" class="link">Instagram</a> · <a href="#" class="link">Facebook</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> BlackBean</p>
+    </div>
+  </footer>
+
+  <!-- JS для слайдерів (авто + dots) -->
+  <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function(){
+    const sliders = document.querySelectorAll('.slider');
+    sliders.forEach(slider => {
+      const slidesWrap = slider.querySelector('.slides');
+      const slides = Array.from(slidesWrap.querySelectorAll('img'));
+      const dotsWrap = slider.querySelector('.dots');
+      let current = 0;
+      const total = slides.length;
+
+      // створити dots
+      slides.forEach((_, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'dot';
+        if(i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsWrap.appendChild(btn);
+      });
+
+      function show(index) {
+        slides.forEach((img, i) => {
+          img.style.opacity = i === index ? '1' : '0';
+          img.style.pointerEvents = i === index ? 'auto' : 'none';
+        });
+        const dots = dotsWrap.querySelectorAll('.dot');
+        dots.forEach((d,i)=> d.classList.toggle('active', i===index));
+      }
+
+      function goTo(i){ current = i; show(current); }
+
+      let timer = setInterval(() => {
+        current = (current + 1) % total;
+        show(current);
+      }, 3500);
+
+      function resetTimer(){
+        clearInterval(timer);
+        timer = setInterval(() => {
+          current = (current + 1) % total;
+          show(current);
+        }, 3500);
+      }
+
+      show(0);
+    });
+  })();
+  </script>
+</body>
+</html>
